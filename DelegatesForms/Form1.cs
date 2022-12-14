@@ -17,7 +17,7 @@ namespace DelegatesForms
         private float Substract(float num1, float num2)
         {
             return num1 - num2;
-      
+
         }
         private float Divide(float num1, float num2)
         {
@@ -25,9 +25,9 @@ namespace DelegatesForms
         }
         private float Percentage(float num1, float num2)
         {
-            return (num1/num2) * 100;
+            return (num1 / num2) * 100;
         }
-        private float Multiply(float num1,float num2)
+        private float Multiply(float num1, float num2)
         {
             return num1 * num2;
         }
@@ -43,28 +43,32 @@ namespace DelegatesForms
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0) DoMath = Add; 
-            if (comboBox1.SelectedIndex == 1) DoMath = Substract;  
-            if (comboBox1.SelectedIndex == 2) DoMath = Multiply; 
-            if (comboBox1.SelectedIndex == 3) DoMath = Power;
-            if (comboBox1.SelectedIndex == 4) DoMath = Divide;
-            if (comboBox1.SelectedIndex == 5) DoMath = Percentage;
-            else label2.Text = "Error, didn't choose Action";
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0: DoMath = Add; break;
+                case 1: DoMath = Substract; break;
+                case 2: DoMath = Multiply; break;
+                case 3: DoMath = Power; break;
+                case 4: DoMath = Divide; break;
+                case 5: DoMath = Percentage; break;
+                default: label2.Text = "Error, didn't choose Action"; break;
+            }
 
 
             if (textBox1.Text != "" && textBox2.Text != "")
             {
-                //if (float.Parse(textBox1.Text).GetType() == typeof(float) && float.Parse(textBox2.Text).GetType() == typeof(float))
-                //{
-                //}
-                //else
-                //{
-                //    label2.Text = "Error, please use Numbers";
-                //}
+
+                if (float.TryParse(textBox1.Text, out _) && float.TryParse(textBox2.Text, out _))
+                {
                     float userNam1 = float.Parse(textBox1.Text);
                     float userNam2 = float.Parse(textBox2.Text);
                     label2.Text = DoMath(userNam1, userNam2).ToString();
+                }
+                else label2.Text = "Error, please use Numbers";
+              
             }
+   
+
 
         }
 
