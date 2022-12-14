@@ -1,4 +1,7 @@
-﻿using System;
+﻿// ---- C# II (Dor Ben Dor) ----
+//          Roee Tal
+// -----------------------------
+using System;
 
 //LimitedObservableList list = new((s) => !s.Contains("s") && !s.Contains("S"));
 LimitedObservableList list = new LimitedObservableList(IsContainLetterS);
