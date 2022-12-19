@@ -39,7 +39,6 @@ namespace DelegatesForms
                 value += (num * num);
             }
             return value;
-
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,15 +56,13 @@ namespace DelegatesForms
 
             if (textBox1.Text != "" && textBox2.Text != "")
             {
-
                 if (float.TryParse(textBox1.Text, out _) && float.TryParse(textBox2.Text, out _))
                 {
                     float userNam1 = float.Parse(textBox1.Text);
                     float userNam2 = float.Parse(textBox2.Text);
                     label2.Text = DoMath(userNam1, userNam2).ToString();
                 }
-                else label2.Text = "Error, please use Numbers";
-              
+                else label2.Text = "Error, please use Numbers";            
             }
    
 
